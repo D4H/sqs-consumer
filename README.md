@@ -1,9 +1,9 @@
 # sqs-consumer
 
 [![NPM downloads](https://img.shields.io/npm/dm/sqs-consumer.svg?style=flat)](https://npmjs.org/package/sqs-consumer)
-[![Build Status](https://travis-ci.org/bbc/sqs-consumer.svg)](https://travis-ci.org/bbc/sqs-consumer) 
-[![Code Climate](https://codeclimate.com/github/BBC/sqs-consumer/badges/gpa.svg)](https://codeclimate.com/github/BBC/sqs-consumer) 
-[![Test Coverage](https://codeclimate.com/github/BBC/sqs-consumer/badges/coverage.svg)](https://codeclimate.com/github/BBC/sqs-consumer)
+[![Build Status](https://travis-ci.org/d4h/sqs-consumer.svg)](https://travis-ci.org/d4h/sqs-consumer) 
+[![Code Climate](https://codeclimate.com/github/D4H/sqs-consumer/badges/gpa.svg)](https://codeclimate.com/github/d4h/sqs-consumer) 
+[![Test Coverage](https://codeclimate.com/github/D4H/sqs-consumer/badges/coverage.svg)](https://codeclimate.com/github/d4h/sqs-consumer)
 
 Build SQS-based applications without the boilerplate. Just define an async function that handles the SQS message processing.
 
@@ -176,4 +176,4 @@ Consumer will receive and delete messages from the SQS queue. Ensure `sqs:Receiv
 
 
 ### Contributing 
-See contributing [guidelines](https://github.com/bbc/sqs-consumer/blob/master/.github/CONTRIBUTING.md).
+See contributing [guidelines](https://github.com/d4h/sqs-consumer/blob/master/.github/CONTRIBUTING.md).
