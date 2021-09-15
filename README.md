@@ -10,7 +10,7 @@ Build SQS-based applications without the boilerplate. Just define an async funct
 ## Installation
 
 ```bash
-npm add sqs-consumer
+npm add @d4h/sqs-consumer
 ```
 
 Note: This library assumes you are using [AWS SDK v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sqs/index.html). If you are using v2, please install v5.5.0:
