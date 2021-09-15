@@ -22,7 +22,7 @@ npm add sqs-consumer@5.5.0
 ## Usage
 
 ```js
-import { Consumer } from 'sqs-consumer';
+import { Consumer } from '@d4h/sqs-consumer';
 
 const app = Consumer.create({
   queueUrl: 'https://sqs.eu-west-1.amazonaws.com/account-id/queue-name',
@@ -48,7 +48,7 @@ app.start();
 * By default messages are processed one at a time – a new message won't be received until the first one has been processed. To process messages in parallel, use the `batchSize` option [detailed below](#options).
 * If you need to add specific configuration options to the SQS client, you may pass an instantiated client to the Consumer constructor:
 ```js
-import { Consumer } from 'sqs-consumer';
+import { Consumer } from '@d4h/sqs-consumer';
 import { SQSClient } from '@aws-sdk/client-sqs';
 
 const app = Consumer.create({
@@ -86,7 +86,7 @@ If you need to specify your credentials manually, you can use a pre-configured i
 
 
 ```js
-import { Consumer } from 'sqs-consumer';
+import { Consumer } from '@d4h/sqs-consumer';
 import { SQSClient } from '@aws-sdk/client-sqs';
 import { fromIni } from '@aws-sdk/credential-provider-ini';
 
