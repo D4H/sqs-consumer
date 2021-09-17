@@ -1,9 +1,9 @@
 # sqs-consumer
 
 [![NPM downloads](https://img.shields.io/npm/dt/@d4h/sqs-consumer)](https://npmjs.org/package/@d4h/sqs-consumer)
-[![Build Status](https://travis-ci.org/d4h/sqs-consumer.svg)](https://travis-ci.org/d4h/sqs-consumer) 
-[![Code Climate](https://codeclimate.com/github/D4H/sqs-consumer/badges/gpa.svg)](https://codeclimate.com/github/d4h/sqs-consumer) 
-[![Test Coverage](https://codeclimate.com/github/D4H/sqs-consumer/badges/coverage.svg)](https://codeclimate.com/github/d4h/sqs-consumer)
+[![Build Status](https://travis-ci.org/hannesvdvreken/sqs-consumer.svg)](https://travis-ci.org/hannesvdvreken/sqs-consumer) 
+[![Code Climate](https://codeclimate.com/github/hannesvdvreken/sqs-consumer/badges/gpa.svg)](https://codeclimate.com/github/hannesvdvreken/sqs-consumer) 
+[![Test Coverage](https://codeclimate.com/github/hannesvdvreken/sqs-consumer/badges/coverage.svg)](https://codeclimate.com/github/hannesvdvreken/sqs-consumer)
 
 Build SQS-based applications without the boilerplate. Just define an async function that handles the SQS message processing.
 
