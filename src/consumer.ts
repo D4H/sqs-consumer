@@ -216,7 +216,7 @@ export class Consumer extends EventEmitter {
     try {
       if (this.heartbeatInterval) {
         heartbeat = this.startHeartbeat(async (elapsedSeconds) => {
-          return this.changeVisabilityTimeout(message, elapsedSeconds + this.visibilityTimeout);
+          return this.changeVisibilityTimeout(message, elapsedSeconds + this.visibilityTimeout);
         });
       }
       await this.executeHandler(message);
@@ -226,7 +226,7 @@ export class Consumer extends EventEmitter {
       this.emitError(err, message);
 
       if (this.terminateVisibilityTimeout) {
-        await this.changeVisabilityTimeout(message, 0);
+        await this.changeVisibilityTimeout(message, 0);
       }
     } finally {
       clearInterval(heartbeat);
@@ -272,17 +272,16 @@ export class Consumer extends EventEmitter {
       }
     } catch (err) {
       if (err instanceof TimeoutError) {
-        err.message = `Message handler timed out after ${this.handleMessageTimeout}ms: Operation timed out.`;
+        throw new TimeoutError(`Message handler timed out after ${this.handleMessageTimeout}ms: Operation timed out.`);
       } else {
-        err.message = `Unexpected message handler failure: ${err.message}`;
+        throw new Error(`Unexpected message handler failure: ${err.message}`);
       }
-      throw err;
     } finally {
       clearTimeout(timeout);
     }
   }
 
-  private async changeVisabilityTimeout(message: Message, timeout: number): Promise<ChangeMessageVisibilityCommandOutput> {
+  private async changeVisibilityTimeout(message: Message, timeout: number): Promise<ChangeMessageVisibilityCommandOutput> {
     try {
       const input: ChangeMessageVisibilityCommandInput = {
         QueueUrl: this.queueUrl,
@@ -347,7 +346,7 @@ export class Consumer extends EventEmitter {
     try {
       if (this.heartbeatInterval) {
         heartbeat = this.startHeartbeat(async (elapsedSeconds) => {
-          return this.changeVisabilityTimeoutBatch(messages, elapsedSeconds + this.visibilityTimeout);
+          return this.changeVisibilityTimeoutBatch(messages, elapsedSeconds + this.visibilityTimeout);
         });
       }
       await this.executeBatchHandler(messages);
@@ -359,7 +358,7 @@ export class Consumer extends EventEmitter {
       this.emit('error', err, messages);
 
       if (this.terminateVisibilityTimeout) {
-        await this.changeVisabilityTimeoutBatch(messages, 0);
+        await this.changeVisibilityTimeoutBatch(messages, 0);
       }
     } finally {
       clearInterval(heartbeat);
@@ -388,12 +387,11 @@ export class Consumer extends EventEmitter {
     try {
       await this.handleMessageBatch(messages);
     } catch (err) {
-      err.message = `Unexpected message handler failure: ${err.message}`;
-      throw err;
+      throw new Error(`Unexpected message handler failure: ${err.message}`);
     }
   }
 
-  private async changeVisabilityTimeoutBatch(messages: Message[], timeout: number): Promise<ChangeMessageVisibilityBatchCommandOutput> {
+  private async changeVisibilityTimeoutBatch(messages: Message[], timeout: number): Promise<ChangeMessageVisibilityBatchCommandOutput> {
     const params: ChangeMessageVisibilityBatchCommandInput = {
       QueueUrl: this.queueUrl,
       Entries: messages.map((message) => ({

@@ -41,7 +41,6 @@ class MockSQSError extends Error implements SdkError {
 
   constructor(message: string) {
     super(message);
-    this.message = message;
   }
 }
 
