@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hannesvdvreken/sqs-consumer.git"
+    "url": "https://github.com/d4h/sqs-consumer.git"
   },
   "bugs": {
-    "url": "https://github.com/hannesvdvreken/sqs-consumer/issues"
+    "url": "https://github.com/d4h/sqs-consumer/issues"
   },
-  "homepage": "https://github.com/hannesvdvreken/sqs-consumer",
+  "homepage": "https://github.com/d4h/sqs-consumer",
   "keywords": [
     "sqs",
     "queue",
